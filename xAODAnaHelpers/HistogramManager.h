@@ -9,7 +9,7 @@
 
 #include <ctype.h>
 #include <TH1.h>
-#include <TH1F.h>
+#include <TH1D.h>
 #include <TH2F.h>
 #include <TH3F.h>
 #include <TProfile.h>
@@ -128,7 +128,7 @@ class HistogramManager {
          @param zhigh    upper bound on zbins
          @param zbinsArr variable zbins
      */
-    TH1F* book(std::string name, std::string title,
+    TH1D* book(std::string name, std::string title,
                std::string xlabel, int xbins, double xlow, double xhigh);
 
     /**
@@ -149,7 +149,7 @@ class HistogramManager {
     /**
      * @overload
      */
-    TH1F* book(std::string name, std::string title,
+    TH1D* book(std::string name, std::string title,
                std::string xlabel, int xbins, const Double_t* xbinsArr);
 
     /**

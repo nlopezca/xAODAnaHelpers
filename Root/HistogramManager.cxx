@@ -34,10 +34,10 @@ HistogramManager::HistogramManager(std::string name, std::string detailStr):
 HistogramManager::~HistogramManager() {}
 
 /* Main book() functions for 1D, 2D, 3D histograms */
-TH1F* HistogramManager::book(std::string name, std::string title,
+TH1D* HistogramManager::book(std::string name, std::string title,
                              std::string xlabel, int xbins, double xlow, double xhigh)
 {
-  TH1F* tmp = new TH1F( (name + title).c_str(), title.c_str(), xbins, xlow, xhigh);
+  TH1D* tmp = new TH1D( (name + title).c_str(), title.c_str(), xbins, xlow, xhigh);
   SetLabel(tmp, xlabel);
   this->Sumw2(tmp);
   this->record(tmp);
@@ -81,10 +81,10 @@ TProfile* HistogramManager::book(std::string name, std::string title,
 
 
 /////// Variable Binned Histograms ///////
-TH1F* HistogramManager::book(std::string name, std::string title,
+TH1D* HistogramManager::book(std::string name, std::string title,
                              std::string xlabel, int xbins, const Double_t* xbinArr)
 {
-  TH1F* tmp = new TH1F( (name + title).c_str(), title.c_str(), xbins, xbinArr);
+  TH1D* tmp = new TH1D( (name + title).c_str(), title.c_str(), xbins, xbinArr);
   SetLabel(tmp, xlabel);
   this->Sumw2(tmp);
   this->record(tmp);

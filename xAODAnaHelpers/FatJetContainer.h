@@ -74,6 +74,7 @@ namespace xAH {
       std::vector<float> *m_ActiveArea4vec_m;
 
       // substructure
+      std::vector<float> *m_ANN_score;
       std::vector<float> *m_Split12;
       std::vector<float> *m_Split23;
       std::vector<float> *m_Split34;

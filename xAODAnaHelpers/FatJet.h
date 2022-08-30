@@ -31,6 +31,7 @@ namespace xAH {
       float ActiveArea4vec_m;
 
       // substructure
+      float ANN_score;
       float  Split12;
       float  Split23;
       float  Split34;

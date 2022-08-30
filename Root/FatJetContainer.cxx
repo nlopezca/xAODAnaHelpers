@@ -4,6 +4,7 @@
 #include "xAODTruth/TruthEventContainer.h"
 
 using namespace xAH;
+using namespace std;
 
 FatJetContainer::FatJetContainer(const std::string& name, const std::string& detailStr, const std::string& subjetDetailStr, const std::string& suffix,
 				 float units, bool mc)
@@ -36,6 +37,7 @@ FatJetContainer::FatJetContainer(const std::string& name, const std::string& det
   }
 
   if ( m_infoSwitch.m_substructure ) {
+    m_ANN_score             = new std::vector<float>();
     m_Split12           = new std::vector<float>();
     m_Split23           = new std::vector<float>();
     m_Split34           = new std::vector<float>();
@@ -114,6 +116,7 @@ FatJetContainer::~FatJetContainer()
   }
 
   if ( m_infoSwitch.m_substructure ) {
+    delete m_ANN_score; 
     delete m_Split12     ;
     delete m_Split23     ;
     delete m_Split34     ;
@@ -193,6 +196,7 @@ void FatJetContainer::setTree(TTree *tree)
   }
 
   if ( m_infoSwitch.m_substructure ) {
+    connectBranch<float>(tree, "ANN_score",     &m_ANN_score);
     connectBranch<float>(tree, "Split12",      &m_Split12);
     connectBranch<float>(tree, "Split23",      &m_Split23);
     connectBranch<float>(tree, "Split34",      &m_Split34);
@@ -245,7 +249,7 @@ void FatJetContainer::updateParticle(uint idx, FatJet& fatjet)
 {
   if(m_debug) std::cout << "in FatJetContainer::updateParticle " << std::endl;
   ParticleContainer::updateParticle(idx,fatjet);
-
+  //  cout <<" particle updated begin ";
   if ( m_infoSwitch.m_scales ) {
       fatjet.JetConstitScaleMomentum_eta = m_JetConstitScaleMomentum_eta ->at(idx);
       fatjet.JetConstitScaleMomentum_phi = m_JetConstitScaleMomentum_phi ->at(idx);
@@ -268,7 +272,13 @@ void FatJetContainer::updateParticle(uint idx, FatJet& fatjet)
     fatjet.ActiveArea4vec_m = m_ActiveArea4vec_m->at(idx);
   }
 
+
+
   if ( m_infoSwitch.m_substructure ) {
+
+    //cout <<" update within substructure ";
+
+    //    fatjet.ANN_score = m_ANN_score ->at(idx);
     fatjet.Split12      = m_Split12     ->at(idx);
     fatjet.Split23      = m_Split23     ->at(idx);
     fatjet.Split34      = m_Split34     ->at(idx);
@@ -287,11 +297,15 @@ void FatJetContainer::updateParticle(uint idx, FatJet& fatjet)
     fatjet.nTracks      = m_nTracks     ->at(idx);
   }
 
+  //  cout <<" update after substructure ";
+
   if ( m_infoSwitch.m_constituent) {
+    // cout << "within jet consituent";
     fatjet.numConstituents    = m_numConstituents   ->at(idx);
   }
 
   if ( m_infoSwitch.m_constituentAll) {
+    //cout << "within jet consituent All";
     fatjet.constituentWeights = m_constituentWeights  ->at(idx);
     fatjet.constituent_pt     = m_constituent_pt      ->at(idx);
     fatjet.constituent_eta    = m_constituent_eta     ->at(idx);
@@ -317,7 +331,7 @@ void FatJetContainer::updateParticle(uint idx, FatJet& fatjet)
 	  fatjet.trkJets[kv.first].push_back(thisTrkJet);
 	}
     }
-
+  //cout << " end update particle ";
   if(m_debug) std::cout << "leave FatJetContainer::updateParticle " << std::endl;
   return;
 }
@@ -352,6 +366,7 @@ void FatJetContainer::setBranches(TTree *tree)
   }
 
   if ( m_infoSwitch.m_substructure ) {
+    setBranch<float>(tree, "ANN_score", m_ANN_score);
     setBranch<float>(tree, "Split12",      m_Split12);
     setBranch<float>(tree, "Split23",      m_Split23);
     setBranch<float>(tree, "Split34",      m_Split34);
@@ -427,6 +442,7 @@ void FatJetContainer::clear()
   }
 
   if ( m_infoSwitch.m_substructure ) {
+    m_ANN_score ->clear();
     m_Split12     ->clear();
     m_Split23     ->clear();
     m_Split34     ->clear();
@@ -521,6 +537,10 @@ void FatJetContainer::FillFatJet( const xAOD::IParticle* particle ){
   }
 
   if( m_infoSwitch.m_substructure ){
+    static SG::AuxElement::ConstAccessor<float> acc_ANN_score("ANN_score");
+    safeFill<float, float, xAOD::Jet>(fatjet, acc_ANN_score, m_ANN_score, -999, m_units);
+
+
     static SG::AuxElement::ConstAccessor<float> acc_Split12("Split12");
     safeFill<float, float, xAOD::Jet>(fatjet, acc_Split12, m_Split12, -999, m_units);
 

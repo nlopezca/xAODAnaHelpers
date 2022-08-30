@@ -232,7 +232,8 @@ EL::StatusCode BJetEfficiencyCorrector :: initialize ()
 		calibration="410558";
 		break;
 	      case HelperFunctions::Sherpa21:
-		calibration="426131";
+		//		calibration="426131";
+		calibration="410250";
 		break;
 	      case HelperFunctions::Sherpa22:
 		calibration="410250";

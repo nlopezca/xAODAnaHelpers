@@ -39,58 +39,58 @@ class VtxHists : public HistogramManager
     float getIso( const xAOD::TrackParticle *inTrack,            const xAOD::TrackParticleContainer* trks, float z0_cut = 2, float cone_size = 0.2);
 
     // Histograms
-    TH1F* h_type              ; //!
-    TH1F* h_nTrks              ; //!
-    TH1F* h_nTrks_l              ; //!
-    TH1F* h_trk_Pt              ; //!
-    TH1F* h_trk_Pt_l              ; //!
-    TH1F* h_nTrks1GeV      ; //!
-    TH1F* h_nTrks2GeV      ; //!
-    TH1F* h_nTrks5GeV      ; //!
-    TH1F* h_nTrks10GeV     ; //!
-    TH1F* h_nTrks15GeV     ; //!
-    TH1F* h_nTrks20GeV     ; //!
-    TH1F* h_nTrks25GeV     ; //!
-    TH1F* h_nTrks30GeV     ; //!
-    TH1F* h_pt_miss_x    ; //!
-    TH1F* h_pt_miss_x_l  ; //!
-    TH1F* h_pt_miss_y    ; //!
-    TH1F* h_pt_miss_y_l  ; //!
-    TH1F* h_pt_miss    ; //!
-    TH1F* h_pt_miss_l  ; //!
+    TH1D* h_type              ; //!
+    TH1D* h_nTrks              ; //!
+    TH1D* h_nTrks_l              ; //!
+    TH1D* h_trk_Pt              ; //!
+    TH1D* h_trk_Pt_l              ; //!
+    TH1D* h_nTrks1GeV      ; //!
+    TH1D* h_nTrks2GeV      ; //!
+    TH1D* h_nTrks5GeV      ; //!
+    TH1D* h_nTrks10GeV     ; //!
+    TH1D* h_nTrks15GeV     ; //!
+    TH1D* h_nTrks20GeV     ; //!
+    TH1D* h_nTrks25GeV     ; //!
+    TH1D* h_nTrks30GeV     ; //!
+    TH1D* h_pt_miss_x    ; //!
+    TH1D* h_pt_miss_x_l  ; //!
+    TH1D* h_pt_miss_y    ; //!
+    TH1D* h_pt_miss_y_l  ; //!
+    TH1D* h_pt_miss    ; //!
+    TH1D* h_pt_miss_l  ; //!
 
     // Pt of the nth track
     unsigned int m_nLeadTrackPts ; //!
-    std::vector<TH1F*> h_trk_max_Pt              ; //!
-    std::vector<TH1F*> h_trk_max_Pt_l              ; //!
+    std::vector<TH1D*> h_trk_max_Pt              ; //!
+    std::vector<TH1D*> h_trk_max_Pt_l              ; //!
 
 
-    TH1F* h_trkIsoAll              ; //!
-    TH1F* h_trkIso             ; //!
-    TH1F* h_nIsoTrks              ; //!
-    TH1F* h_nIsoTrks_l              ; //!
-    TH1F* h_IsoTrk_Pt              ; //!
-    TH1F* h_IsoTrk_Pt_l              ; //!
-    TH1F* h_nIsoTrks1GeV      ; //!
-    TH1F* h_nIsoTrks2GeV      ; //!
-    TH1F* h_nIsoTrks5GeV      ; //!
-    TH1F* h_nIsoTrks10GeV     ; //!
-    TH1F* h_nIsoTrks15GeV     ; //!
-    TH1F* h_nIsoTrks20GeV     ; //!
-    TH1F* h_nIsoTrks25GeV     ; //!
-    TH1F* h_nIsoTrks30GeV     ; //!
-    TH1F* h_dZ0Before         ; //!
-    TH1F* h_pt_miss_iso_x    ; //!
-    TH1F* h_pt_miss_iso_x_l  ; //!
-    TH1F* h_pt_miss_iso_y    ; //!
-    TH1F* h_pt_miss_iso_y_l  ; //!
-    TH1F* h_pt_miss_iso    ; //!
-    TH1F* h_pt_miss_iso_l  ; //!
+    TH1D* h_trkIsoAll              ; //!
+    TH1D* h_trkIso             ; //!
+    TH1D* h_nIsoTrks              ; //!
+    TH1D* h_nIsoTrks_l              ; //!
+    TH1D* h_IsoTrk_Pt              ; //!
+    TH1D* h_IsoTrk_Pt_l              ; //!
+    TH1D* h_nIsoTrks1GeV      ; //!
+    TH1D* h_nIsoTrks2GeV      ; //!
+    TH1D* h_nIsoTrks5GeV      ; //!
+    TH1D* h_nIsoTrks10GeV     ; //!
+    TH1D* h_nIsoTrks15GeV     ; //!
+    TH1D* h_nIsoTrks20GeV     ; //!
+    TH1D* h_nIsoTrks25GeV     ; //!
+    TH1D* h_nIsoTrks30GeV     ; //!
+    TH1D* h_dZ0Before         ; //!
+    TH1D* h_pt_miss_iso_x    ; //!
+    TH1D* h_pt_miss_iso_x_l  ; //!
+    TH1D* h_pt_miss_iso_y    ; //!
+    TH1D* h_pt_miss_iso_y_l  ; //!
+    TH1D* h_pt_miss_iso    ; //!
+    TH1D* h_pt_miss_iso_l  ; //!
 
     // Pt of the nth track
     unsigned int m_nLeadIsoTrackPts ; //!
-    std::vector<TH1F*> h_IsoTrk_max_Pt              ; //!
-    std::vector<TH1F*> h_IsoTrk_max_Pt_l              ; //!
+    std::vector<TH1D*> h_IsoTrk_max_Pt              ; //!
+    std::vector<TH1D*> h_IsoTrk_max_Pt_l              ; //!
 
 
 };

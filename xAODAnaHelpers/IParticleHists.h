@@ -42,39 +42,39 @@ class IParticleHists : public HistogramManager
     std::string m_title;
 
     //basic
-    TH1F* m_Pt_l;                //!
-    TH1F* m_Pt;                  //!
-    TH1F* m_Pt_m;                //!
-    TH1F* m_Pt_s;                //!
-    TH1F* m_Eta;                 //!
-    TH1F* m_Phi;                 //!
-    TH1F* m_M;                   //!
-    TH1F* m_E;                   //!
-    TH1F* m_Rapidity;            //!
+    TH1D* m_Pt_l;                //!
+    TH1D* m_Pt;                  //!
+    TH1D* m_Pt_m;                //!
+    TH1D* m_Pt_s;                //!
+    TH1D* m_Eta;                 //!
+    TH1D* m_Phi;                 //!
+    TH1D* m_M;                   //!
+    TH1D* m_E;                   //!
+    TH1D* m_Rapidity;            //!
 
     // kinematic
-    TH1F* m_Px;                  //!
-    TH1F* m_Py;                  //!
-    TH1F* m_Pz;                  //!
-    TH1F* m_Et;                  //!
-    TH1F* m_Et_m;                //!
-    TH1F* m_Et_s;                //!
+    TH1D* m_Px;                  //!
+    TH1D* m_Py;                  //!
+    TH1D* m_Pz;                  //!
+    TH1D* m_Et;                  //!
+    TH1D* m_Et_m;                //!
+    TH1D* m_Et_s;                //!
 
     //NLeadingParticles
-    std::vector< TH1F* > m_NPt_l;       //!
-    std::vector< TH1F* > m_NPt;       //!
-    std::vector< TH1F* > m_NPt_m;       //!
-    std::vector< TH1F* > m_NPt_s;       //!
-    std::vector< TH1F* > m_NEta;      //!
-    std::vector< TH1F* > m_NPhi;      //!
-    std::vector< TH1F* > m_NM;        //!
-    std::vector< TH1F* > m_NE;        //!
-    std::vector< TH1F* > m_NRapidity; //!
+    std::vector< TH1D* > m_NPt_l;       //!
+    std::vector< TH1D* > m_NPt;       //!
+    std::vector< TH1D* > m_NPt_m;       //!
+    std::vector< TH1D* > m_NPt_s;       //!
+    std::vector< TH1D* > m_NEta;      //!
+    std::vector< TH1D* > m_NPhi;      //!
+    std::vector< TH1D* > m_NM;        //!
+    std::vector< TH1D* > m_NE;        //!
+    std::vector< TH1D* > m_NRapidity; //!
 
     // kinematic
-    std::vector< TH1F* > m_NEt;       //!
-    std::vector< TH1F* > m_NEt_m;       //!
-    std::vector< TH1F* > m_NEt_s;       //!
+    std::vector< TH1D* > m_NEt;       //!
+    std::vector< TH1D* > m_NEt_m;       //!
+    std::vector< TH1D* > m_NEt_s;       //!
 };
 
 
